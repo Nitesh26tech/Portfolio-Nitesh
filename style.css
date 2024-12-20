@@ -65,6 +65,7 @@ nav ul li a {
 
 a:hover {
     color: aqua;
+    /* border-bottom: 2px solid aqua; */
     /* font-size: 21px; */
 }
 
@@ -106,7 +107,23 @@ p {
     width: 60%;
     margin-top: 15%;
 }
+.hello {
+    font-size: 60px;
+    /* animation: shake 0.5s 1; */
+    display: inline-block;
+}
+.hello:hover{
+    animation: shake 0.5s 2;
+    cursor: pointer;
+}
 
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
 .home-img {
     width: 35%;
     margin-top: 100px;
@@ -127,19 +144,23 @@ img {
     display: inline-block;
     cursor: pointer;
 }
+.gmail{  
+    align-items: baseline;
+    font-size: 25px;
+    gap: 10px;
+}
 
 .gmail a {
     color: white;
-    margin-right: 15px;
-    font-size: 25px;
-    width: 0;
-    transition: 0.5s;
     position: absolute;
+    border-bottom: 4px solid aqua;
+    content: '';
+    width: 0%;
+    transition: 1.5s;
 }
 
 .gmail a:hover {
-    color: aqua;
-    transform: translateY(-5px);
+    width: auto;
 }
 
 
@@ -242,7 +263,7 @@ img {
 .icons-container img {
     align-items: center;
     justify-content: space-between;
-    margin: 20px 20px;
+    margin: auto;
     height: 50px;
     width: 50px;
     transition: 1.5s;
@@ -253,8 +274,9 @@ img {
 }
 /* project section */
 
+
 .project-list {
-    height: 650px;
+    height:100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -283,52 +305,120 @@ img {
 
 .project-4 {
     background-image: url(./images/calculator.jpg);
-    background-size: auto;
+    background-size: cover;
 }
 
 .project-5 {
     background-image:url(./images/stormy-weather-img.avif);
-    background-size: auto;
+    background-size: cover;
 
 }
 
-.project-list div {
-    height: 250px;
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100%; 
+    margin-bottom: 20vh;
+    
+}
+
+.project {
+    border-radius: 5px;
     width: 30%;
-    padding:30px;
-    font-size: 20px;
-    font-weight: 200;
-    /* border-radius: 10px; */
-    box-shadow: 1px 1px 5px 1px rgb(78, 236, 242);
-    transition: 400ms;
+    /* height: 280px; */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
 }
 
-.project-list div:hover {
-    transform: scale(1.02);
-    /* cursor: pointer; */
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(78, 236, 242, 0.4);
 }
 
-.project-list div h4 {
-    font-size: 30px;
+.project h4 {
+    font-size: 34px;
     color: aqua;
-    letter-spacing: 1.5px;
+    margin-bottom: 10px;
 }
 
-.project-list div a {
-    color: #fff;
-    margin-top: 10px;
+.project p {
+    font-size: 26px;
+    line-height: 1.5;
+}
+
+.project a {
+    font-size: 16px;
+    color: aqua;
+    text-decoration: none;
     display: inline-block;
-    transition: 1.5s;
+    margin-top: 15px;
+    transition: color 0.3s ease;
 }
 
-.project-list div a:hover {
-    color: aqua;
-    cursor: pointer;
-    transform: scale(1.1);
+.project a:hover {
+    color: white;
 }
 
+.project i {
+    margin-left: 10px;
+}
+
+/*  Responsive Design */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    .project-list{
+        margin-bottom: 20px;
+    }
+    .project {
+        width: 45%; 
+        margin-bottom: 30px; 
+    }
+
+    .project h4 {
+        font-size: 22px; 
+    }
+
+    .project p {
+        font-size: 14px; 
+    }
+
+    .project a {
+        font-size: 14px; 
+    }
+}
+
+/* Mobile Phones (480px) */
+@media (max-width: 480px) {
+    .project-list {
+        justify-content: center; 
+        margin-bottom: 50px;
+    }
+
+    .project {
+        width: 90%; 
+        margin-bottom: 20px; 
+    }
+
+    .project h4 {
+        font-size: 18px; 
+    }
+
+    .project p {
+        font-size: 12px; 
+    }
+
+    .project a {
+        font-size: 12px; 
+    }
+}
 
 /* Contact Section */
+
 #contact-section {
     width: 100%;
     height: 100vh;
@@ -411,13 +501,7 @@ form textarea {
 }
 
 .submit-btn:hover {
-    margin-left: 40%;
-    padding: 7px;
-    display: inline-block;
-    border: 2px solid aqua;
-    background: none;
-    border-radius: 5px;
-    font-size: 25px;
+    border: 2px solid black;
     background: aqua;
     color: black;
 }
@@ -433,20 +517,26 @@ form textarea {
 }
 #Ontopbtn{
    font-size: 35px;
-    padding: 20px;
+    /* padding: 20px; */
     position: fixed;
-    bottom: 50px;
+    bottom: 5vh;
     right: 10px;
     cursor: pointer;
 }
 #Ontopbtn:hover{
     transform: translateY(-5px);
 }
+.nav-icon{
+    align-items: center;
+    font-size: 30px;
+    margin-right: 12px;
+    display: none;
+}
 
 
 /* Media Queries for Responsiveness */
 
-/* Tablet and Below (768px) */
+/* Tablet  (768px) */
 @media (max-width: 768px) {
 
     .home,
@@ -475,12 +565,34 @@ form textarea {
     }
 
     nav ul {
-        display: flex;
+        display: none;
         flex-direction: column;
     }
 
     nav ul li {
         margin: 10px 0;
+    }
+    .nav-icon{
+        display: flex;
+        cursor: pointer;
+    }
+    .showData{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 80px;
+        right: 2px;
+        width: 30%;
+        height: 240px;
+        text-align: center;
+        padding: 0;
+        gap: 20px;
+        background: gray;
+    }
+    .gmail{
+        font-size: 20px;
     }
 
     /* Projects */
@@ -491,11 +603,14 @@ form textarea {
     .icons-container {
         margin-left: 0;
         justify-content: center;
+
     }
 
     .icons-container img {
         height: 50px;
         width: 50px;
+        margin: auto;
+
     }
 
     /* Contact */
@@ -509,7 +624,15 @@ form textarea {
     }
 
     .submit-btn {
-        margin-left: 0;
+        /* margin-left: 0; */
+        /* display: flex;  */
+        align-items: center;
+        justify-content: center;
+    }
+    #Ontopbtn{
+        /* position: fixed; */
+        bottom: 5vh;
+        margin-right: 60px;
     }
 
     .footer {
@@ -517,11 +640,20 @@ form textarea {
     }
 }
 
-/* Mobile and Below (480px) */
+/* Mobile (480px) */
 @media (max-width: 480px) {
     .home {
         text-align: center;
     }
+    .showData{
+        right: 2px;
+        background:gray;
+
+    }
+    .gmail{
+        font-size: 16px;
+    }
+
 
     .profile img {
         width: 70%;
@@ -546,12 +678,25 @@ form textarea {
     .project-list div {
         padding: 15px;
     }
+    .icons-container img{
+        margin: auto;
+        height: 30px;
+        width: 30px;
+    }
 
     .submit-btn {
         font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .social-icons a {
         font-size: 18px;
     }
+    #Ontopbtn{
+    margin-right: 100px;
+    /* position: fixed; */
+    }
 }
+
