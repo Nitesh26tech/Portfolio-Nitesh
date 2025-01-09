@@ -40,18 +40,18 @@ window.addEventListener('scroll', () => {
 let navBtn = document.querySelector(".nav-icon");
 let ul = document.querySelector("ul")
 
-navBtn.addEventListener("click",()=>{
-   ul.classList.toggle("showData");
- if(ul.className == "showData"){
-    document.getElementById("icon").className ="fa-solid fa-xmark";
- }else{
-    document.getElementById("icon").className="fa-solid fa-bars";
- }
+navBtn.addEventListener("click", () => {
+    ul.classList.toggle("showData");
+    if (ul.className == "showData") {
+        document.getElementById("icon").className = "fa-solid fa-xmark";
+    } else {
+        document.getElementById("icon").className = "fa-solid fa-bars";
+    }
 
 });
 
- // Handle form submission
- document.getElementsByClassName('contact-form').addEventListener('submit', function (event) {
+// Handle form submission
+document.getElementsByClassName('contact-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Get form data
